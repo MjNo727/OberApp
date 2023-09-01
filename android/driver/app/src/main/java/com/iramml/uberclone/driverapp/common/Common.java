@@ -23,7 +23,7 @@ public class Common {
 
 
     public static double formulaPrice(double km, double min){
-        return ConfigApp.baseFare + (ConfigApp.distanceRate * km) + (ConfigApp.timeRate * min);
+        return (ConfigApp.baseFare + (ConfigApp.distanceRate * km) + (ConfigApp.timeRate * min))*1000;
     }
 
 }

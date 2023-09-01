@@ -94,7 +94,6 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback, HomeFr
                 currentLocationMarket = mMap.addMarker(new MarkerOptions().position(latLng)
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_marker))
                         .title("Your Location"));
-
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Common.currentLat, Common.currentLng), 15.0f));
             }
         });

@@ -64,7 +64,9 @@
             android:layout_gravity="center"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginBottom="4dp"
+            android:enabled="false"
+            android:visibility="invisible"/>
         <mehdi.sakout.fancybuttons.FancyButton
             android:id="@+id/login_button_Google"
             android:layout_width="match_parent"
@@ -84,7 +86,9 @@
             android:layout_gravity="center"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginBottom="4dp"
+            android:enabled="false"
+            android:visibility="invisible"/>
 
         <TextView
             android:text="OR"
@@ -92,9 +96,10 @@
             android:layout_gravity="center"
             android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:visibility="invisible"/>
         <Button
-            android:id="@+id/btnSignin"
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
@@ -102,11 +107,11 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/btn_sign_in_background"
-            android:text="@string/signin"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            android:text="@string/login" />
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnSignin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -114,7 +119,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/btn_log_in_backgroud"
-            android:text="@string/login" />
+            android:text="@string/signin"
+            />
+
+
     </LinearLayout>
 
 
