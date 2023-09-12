@@ -52,10 +52,12 @@ public class HomeViewModel extends ViewModel {
                 Common.currentLng = response.getLastLocation().getLongitude();
                 currentLatLng.setValue(new LatLng(Common.currentLat, Common.currentLng));
 
-                if (isOnline){
+                if (isOnline && Common.currentUser != null) {
                     drivers = FirebaseDatabase.getInstance().getReference(Common.driver_tbl).child(Common.currentUser.getCarType());
                     geoFire = new GeoFire(drivers);
                     displayLocation();
+                } else {
+                    // Handle the case where Common.currentUser is null
                 }
             }
         });
@@ -90,15 +92,33 @@ public class HomeViewModel extends ViewModel {
     public void setFirebaseOnlineStatus(boolean isOnline) {
         this.isOnline = isOnline;
         if (isOnline) {
-            FirebaseDatabase.getInstance().goOnline();
-            location.initializeLocation();
-            drivers = FirebaseDatabase.getInstance().getReference(Common.driver_tbl).child(Common.currentUser.getCarType());
-            geoFire = new GeoFire(drivers);
-        }else{
-            FirebaseDatabase.getInstance().goOffline();
-            location.stopUpdateLocation();
+            handleOnlineStatus();
+        } else {
+            handleOfflineStatus();
         }
     }
+
+    private void handleOnlineStatus() {
+        FirebaseDatabase.getInstance().goOnline();
+        location.initializeLocation();
+        if (Common.currentUser != null) {
+            String carType = Common.currentUser.getCarType();
+            if (carType != null) {
+                drivers = FirebaseDatabase.getInstance().getReference(Common.driver_tbl).child(carType);
+                geoFire = new GeoFire(drivers);
+            } else {
+                // Xử lý trường hợp carType là null
+            }
+        } else {
+            // Xử lý trường hợp currentUser là null
+        }
+    }
+
+    private void handleOfflineStatus() {
+        FirebaseDatabase.getInstance().goOffline();
+        location.stopUpdateLocation();
+    }
+
 
 
     public void onRequestPermissionResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

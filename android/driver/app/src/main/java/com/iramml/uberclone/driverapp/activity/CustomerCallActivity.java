@@ -120,9 +120,9 @@ public class CustomerCallActivity extends AppCompatActivity {
     private void getDirection(double lat, double lng) {
         final String requestApi;
 
-        try{
-            requestApi="https://maps.googleapis.com/maps/api/directions/json?mode=driving&" +
-                    "transit_routing_preference=less_driving&origin=" + Common.currentLat + "," + Common.currentLng+"&" +
+        try {
+            requestApi = "https://maps.googleapis.com/maps/api/directions/json?mode=driving&" +
+                    "transit_routing_preference=less_driving&origin=" + Common.currentLat + "," + Common.currentLng + "&" +
                     "destination=" + lat + "," + lng + "&key=" + ConfigApp.GOOGLE_API_KEY;
             Log.d("URL_MAPS", requestApi);
             mService.getPath(requestApi).enqueue(new Callback<String>() {
@@ -132,9 +132,14 @@ public class CustomerCallActivity extends AppCompatActivity {
                     GoogleMapsAPIRequest requestObject = gson.fromJson(response.body().toString(), GoogleMapsAPIRequest.class);
                     Log.d("RESPONSE", response.body().toString());
 
-                    tvDistance.setText(requestObject.routes.get(0).legs.get(0).distance.text);
-                    tvTime.setText(requestObject.routes.get(0).legs.get(0).duration.text);
-                    tvAddress.setText(requestObject.routes.get(0).legs.get(0).end_address);
+                    if (requestObject.routes != null && !requestObject.routes.isEmpty() &&
+                            requestObject.routes.get(0).legs != null && !requestObject.routes.get(0).legs.isEmpty()) {
+                        tvDistance.setText(requestObject.routes.get(0).legs.get(0).distance.text);
+                        tvTime.setText(requestObject.routes.get(0).legs.get(0).duration.text);
+                        tvAddress.setText(requestObject.routes.get(0).legs.get(0).end_address);
+                    } else {
+                        // Xử lý trường hợp danh sách routes hoặc legs là null hoặc rỗng
+                    }
                 }
 
                 @Override
@@ -142,7 +147,7 @@ public class CustomerCallActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), t.getMessage().toString(), Toast.LENGTH_SHORT).show();
                 }
             });
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -530,7 +530,11 @@ public class TrackingActivity extends AppCompatActivity implements OnMapReadyCal
                 polylineOptions.geodesic(true);
 
             }
-            direction = mMap.addPolyline(polylineOptions);
+            if (polylineOptions != null) {
+                direction = mMap.addPolyline(polylineOptions);
+            } else {
+                // Handle the case where polylineOptions is null (e.g., log an error or take appropriate action)
+            }
         }
     }
 }
