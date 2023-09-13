@@ -60,9 +60,17 @@ public class TripDetailActivity extends FragmentActivity implements OnMapReadyCa
             Calendar calendar = Calendar.getInstance();
             String date = String.format("%s, %d/%d", convertToDayOfWeek(calendar.get(Calendar.DAY_OF_WEEK)), calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.MONTH));
             txtDate.setText(date);
-            txtFee.setText(String.format("$ %.2f", getIntent().getDoubleExtra("total", 0.0)));
-            txtEstimatedPayout.setText(String.format("$ %.2f", getIntent().getDoubleExtra("total", 0.0)));
-            txtBaseFare.setText(String.format("$ %.2f", ConfigApp.baseFare));
+            double fee = getIntent().getDoubleExtra("total", 0.0) * 25000;
+txtFee.setText(String.format("%,.0f VND", fee));
+double totalAmount = getIntent().getDoubleExtra("total", 0.0) * 25000; // Tính toán số tiền mới
+String formattedTotalAmount = String.format("%,.0f VND", totalAmount); // Định dạng số tiền
+
+txtEstimatedPayout.setText(formattedTotalAmount);
+
+double baseFare = ConfigApp.baseFare * 25000; // Tính toán số tiền cơ sở mới
+String formattedBaseFare = String.format("%,.0f VND", baseFare); // Định dạng số tiền
+
+txtBaseFare.setText(formattedBaseFare);
             txtTime.setText(String.format("%s min", getIntent().getStringExtra("time")));
             txtDistance.setText(String.format("%s km", getIntent().getStringExtra("distance")));
             txtFrom.setText(getIntent().getStringExtra("start_address"));
