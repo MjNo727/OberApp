@@ -35,6 +35,8 @@
           android:orientation="horizontal"
           android:layout_weight="1"
           android:layout_width="0dp"
+          android:visibility="invisible"
+          android:layout_height="wrap_content">
           android:layout_height="wrap_content">
         <ImageView
             android:src="@drawable/ic_star_white_24dp"

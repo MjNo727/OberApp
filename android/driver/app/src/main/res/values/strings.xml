@@ -2,9 +2,10 @@
     <string name="app_name">UC Driver</string>
     <string name="title_activity_main">Map</string>
     <string name="tv_login_title">DRIVER</string>
-    <string name="tv_login_subtitle">UBER CLONE</string>
+    <string name="tv_login_subtitle">OBER</string>
     <string name="login">LOG IN</string>
-    <string name="signin">SIGN IN</string>
+    <string name="sign_in">SIGN UP</string>
+    <string name="signin">SIGN UP</string>
     <string name="sign_up">SIGN UP</string>
     <string name="btn_accept">ACCEPT</string>
     <string name="btn_decline">DECLINE</string>

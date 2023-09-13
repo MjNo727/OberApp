@@ -45,7 +45,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/btn_sign_in_background"
+            android:text="@string/login"
+            android:textColor="#fff"/>
         <Button
             android:id="@+id/btnSignin"
             android:layout_width="match_parent"
@@ -53,21 +63,11 @@
             android:layout_marginBottom="4dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/btn_sign_in_background"
-            android:text="@string/sign_up"
-            android:textColor="#fff" />
-
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
             android:background="@drawable/btn_log_in_backgroud"
-            android:text="@string/login" />
+
+            android:text="@string/sign_up" />
+
+
     </LinearLayout>
 
 

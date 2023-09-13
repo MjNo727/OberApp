@@ -10,15 +10,18 @@
         <item
             android:id="@+id/nav_history"
             android:title="@string/nav_history" />
-        <item
-            android:id="@+id/nav_car_type"
-            android:title="UPDATE VEHICLE TYPE" />
+
         <item
             android:id="@+id/nav_change_pwd"
             android:title="CHANGE PASSWORD" />
         <item
             android:id="@+id/nav_update_info"
             android:title="UPDATE INFORMATION" />
+        <item
+            android:id="@+id/nav_car_type"
+            android:title=" "
+            android:enabled="false"
+            android:visibility="invisible"/>
         <item
             android:id="@+id/nav_sign_out"
             android:title="SIGN OUT" />

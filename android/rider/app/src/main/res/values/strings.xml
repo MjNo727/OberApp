@@ -2,7 +2,7 @@
 <resources>
     <string name="action_settings">Settings</string>
 
-    <string name="app_name">UC Rider</string>
+    <string name="app_name">Ober Rider</string>
 
     <string name="btn_accept">ACCEPT</string>
     <string name="where_to_go">Where to go?</string>
@@ -78,7 +78,7 @@
     <string name="title_activity_home">Home</string>
     <string name="title_activity_main">Map</string>
 
-    <string name="tv_login_subtitle">UBER CLONE</string>
+    <string name="tv_login_subtitle">OBER</string>
     <string name="tv_login_title">RIDER</string>
 
     <string name="you">You</string>
